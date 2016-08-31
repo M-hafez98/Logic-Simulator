@@ -1,7 +1,19 @@
 #include "Simulator.h"
 #include <fstream>
+#include "ANDGate.h"
+#include "NANDGate.h"
+#include "ORGate.h"
+#include "NORGate.h"
 using namespace std;
 
+Simulator::~Simulator()
+{
+	int i;
+	for(i=0; i<GA.size(); i++)
+		delete GA[i];
+	for(i=0; i<NA.size(); i++)
+		delete NA[i];
+}
 Node* Simulator::FindNode(string N)
 {
 	for(int i=0; i<NA.size(); i++)
