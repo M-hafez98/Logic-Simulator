@@ -23,9 +23,8 @@ Node* Simulator::FindNode(string N)
 }
 Node* Simulator::AddNode(string N)
 {
-	Node* P = new Node();
-	P->SetName(N);
-	NA[NA.size()] = P;
+	Node* P = new Node(N);
+	NA.push_back(P);
 	return NA[NA.size()-1];
 }
 Node* Simulator::FindOrAdd(string N)
@@ -47,8 +46,8 @@ Gate* Simulator::AddGate(string G)
 		P = new NORGate();
 	else if(G == "NAND")
 		P = new NANDGate();
-	
-	GA[GA.size()] = P;
+
+	GA.push_back(P);
 	return GA[GA.size()-1];
 }
 void Simulator::Set(string N, short V)
@@ -60,9 +59,7 @@ void Simulator::Set(string N, short V)
 void Simulator::Sim()
 {
 	for(int i=0; i<GA.size(); i++)
-	{
 		GA[i]->CalcOut();
-	}
 }
 void Simulator::PrintAll()
 {
@@ -96,9 +93,7 @@ void Simulator::Load(string FilePath)
 			string N;
 			short V;
 			file>>N>>V;
-			for(int i=0; i<NA.size(); i++)
-				if(NA[i]->GetName() == N)
-					NA[i]->SetValue(V);
+			Set(N, V);
 		}
 		else
 		{
