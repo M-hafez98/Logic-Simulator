@@ -1,4 +1,3 @@
-#pragma one
 #include "ANDGate.h"
 
 void ANDGate::CalcOut()
