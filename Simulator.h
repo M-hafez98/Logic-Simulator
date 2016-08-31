@@ -12,6 +12,7 @@ public:
 	Node* AddNode(string N);
 	Node* FindOrAdd (string N);
 	Gate* AddGate(string G);
+	void Set(string N, short V);
 	void Sim();
 	void PrintAll();
 	void Load(string FilePath);
