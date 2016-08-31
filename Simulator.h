@@ -1,15 +1,13 @@
-#include "Gate.h"
+#pragma once
 #include <vector>
-#include <iostream>
-#include "ANDGate.h"
-#include "NANDGate.h"
-#include "ORGate.h"
-#include "NORGate.h"
+#include "Gate.h"
+
 class Simulator
 {
 	vector<Node*>NA;
 	vector<Gate*>GA;
 public:
+	~Simulator();
 	Node* FindNode(string N);
 	Node* AddNode(string N);
 	Node* FindOrAdd (string N);
@@ -18,4 +16,3 @@ public:
 	void PrintAll();
 	void Load(string FilePath);
 };
-
