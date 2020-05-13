@@ -1,4 +1,4 @@
-#pragma one
+#pragma once
 #include "Gate.h"
 
 class ANDGate : public Gate
